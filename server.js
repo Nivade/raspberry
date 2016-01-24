@@ -34,36 +34,10 @@ server.post('/todoist', function(req, res)
 
 server.get('/',  function (req, res) 
 {
-	requestify.request(TodoistSync, {
-		method: 'POST',
-		params: {
-			token: '8b7673d1eb695fc3d1fd7adcd8daa2949221cb76',
-			seq_no: '0',
-			resource_types: 'projects'
-		},
-		headers: {
-			'application': 'x-www-form-urlencoded'
-		},    
-	})
-	.then(function(response) {
-		// get the response body
-		response.getBody();
-
-		// get the response headers
-		response.getHeaders();
-
-		// get the code
-		response.getCode();
-
-		// Get the response raw body
-		console.log(response);
-		console.log(response.body);
-		console.log(response.getBody());
-		console.log("Then");
-	});
+	var auth = require('./google_auth.js');
 	
 	
-	res.send("k");
+	res.send(auth);
 });
 
 server.listen(PORT, function () {
