@@ -36,7 +36,7 @@ server.get('/',  function (req, res)
 {
 	var google_auth = require('./google_auth.js');
 	
-	var auth = google_auth.GetAuth();
+	var auth = google_auth.AuthClient();
 	
 	var calendar = require('./addtogcal.js');
 	
