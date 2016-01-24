@@ -34,7 +34,9 @@ server.post('/todoist', function(req, res)
 
 server.get('/',  function (req, res) 
 {
-	var auth = require('./google_auth.js');
+	var google_auth = require('./google_auth.js');
+	
+	var auth = google_auth.GetAuth();
 	
 	var calendar = require('./addtogcal.js');
 	

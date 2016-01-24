@@ -9,15 +9,19 @@ var TOKEN_DIR = (process.env.HOME || process.env.HOMEPATH ||
 var TOKEN_PATH = TOKEN_DIR + 'calendar-nodejs-quickstart.json';
 
 
-fs.readFile('client_secret.json', function processClientSecrets(err, content) {
-  if (err) {
-	console.log('Error loading client secret file: ' + err);
-	return;
-  }
-  // Authorize a client with the loaded credentials, then call the
-  // Google Calendar API.
-  return authorize(JSON.parse(content));
-});
+function authbycs()
+{
+	fs.readFile('client_secret.json', function processClientSecrets(err, content) {
+	  if (err) {
+		console.log('Error loading client secret file: ' + err);
+		return;
+	  }
+	  // Authorize a client with the loaded credentials, then call the
+	  // Google Calendar API.
+	  return authorize(JSON.parse(content));
+	});
+}
+
 
 
 /**
@@ -96,5 +100,13 @@ function storeToken(token) {
   }
   fs.writeFile(TOKEN_PATH, JSON.stringify(token));
   console.log('Token stored to ' + TOKEN_PATH);
+}
+
+module.exports = 
+{
+	GetAuth: function()
+	{	
+		return authbycs();
+	}
 }
 	
