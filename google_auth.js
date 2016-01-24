@@ -7,7 +7,7 @@ var SCOPES = ['https://www.googleapis.com/auth/calendar'];
 var TOKEN_DIR = (process.env.HOME || process.env.HOMEPATH ||
     process.env.USERPROFILE) + '/.credentials/';
 var TOKEN_PATH = TOKEN_DIR + 'calendar-nodejs-quickstart.json';
-
+var oauth2Client;
 
 function authbycs()
 {
@@ -18,8 +18,10 @@ function authbycs()
 	  }
 	  // Authorize a client with the loaded credentials, then call the
 	  // Google Calendar API.
-	  return authorize(JSON.parse(content));
+	  authorize(JSON.parse(content));
 	});
+	
+	return oauth2Client;
 }
 
 
@@ -36,7 +38,7 @@ function authorize(credentials) {
   var clientId = credentials.installed.client_id;
   var redirectUrl = credentials.installed.redirect_uris[0];
   var auth = new googleAuth();
-  var oauth2Client = new auth.OAuth2(clientId, clientSecret, redirectUrl);
+  oauth2Client = new auth.OAuth2(clientId, clientSecret, redirectUrl);
   
 
   // Check if we have previously stored a token.
@@ -102,9 +104,11 @@ function storeToken(token) {
   console.log('Token stored to ' + TOKEN_PATH);
 }
 
+
+
 module.exports = 
 {
-	GetAuth: function()
+	AuthClient: function()
 	{	
 		return authbycs();
 	}
