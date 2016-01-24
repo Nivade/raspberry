@@ -10,6 +10,7 @@ var TOKEN_PATH = TOKEN_DIR + 'calendar-nodejs-quickstart.json';
 
 
 
+
 function Add(task_content, time)
 {
 	fs.readFile('client_secret.json', function processClientSecrets(err, content) {
@@ -138,5 +139,10 @@ module.exports =
 	Insert: function(task_content, time)
 	{	
 		Add(task_content, time);
+	}
+	
+	Move: function(auth, cont, time)
+	{
+		listEvents(auth, cont, time);
 	}
 };

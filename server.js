@@ -36,6 +36,9 @@ server.get('/',  function (req, res)
 {
 	var auth = require('./google_auth.js');
 	
+	var calendar = require('./addtogcal.js');
+	
+	calendar.Move(auth, "Check", moment().format());
 	
 	res.send(auth);
 });
