@@ -40,6 +40,8 @@ server.get('/',  function (req, res)
 	
 	calendar.AddEvent(client, "sjjsjsjsj", time);
 	
+	res.send(client);
+	
 	//res.send("Als vliegen achter vliegen vliegen vliegen vliegen vliegensvlug...");
 });
 
