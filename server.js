@@ -33,16 +33,7 @@ server.post('/todoist', function(req, res)
 
 server.get('/',  function (req, res) 
 {
-	var auth = require('./google_auth.js');
-	var calendar = require('./calendar.js');
-	var client = auth.AuthClient();
-	var time = moment().format();
-	
-	calendar.AddEvent(client, "sjjsjsjsj", time);
-	
-	res.send(client);
-	
-	//res.send("Als vliegen achter vliegen vliegen vliegen vliegen vliegensvlug...");
+	res.send("Als vliegen achter vliegen vliegen vliegen vliegen vliegensvlug...");
 });
 
 server.listen(PORT, function () {
