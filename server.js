@@ -20,13 +20,12 @@ server.post('/todoist', function(req, res)
 	console.log(req.body);
 	
 	var task_content = req.body.event_data.content;
-	var project_id = req.body.event_data.project_id;
-		
-	var calendar = require('./addtogcal.js');
+	var auth = require('./google_auth.js');
+	var calendar = require('./calendar.js');
+	var client = auth.AuthClient();
+	var time = moment().format();
 	
-	var t = moment().format();
-	
-	calendar.Insert(task_content, t);
+	calendar.AddEvent(client, task_content, time);
 	
 	res.status(SuccesCode).send(SuccesMessage);
 });
@@ -34,15 +33,7 @@ server.post('/todoist', function(req, res)
 
 server.get('/',  function (req, res) 
 {
-	var google_auth = require('./google_auth.js');
-	
-	var auth = google_auth.AuthClient();
-	
-	var calendar = require('./addtogcal.js');
-	
-	calendar.Move(auth, "Check", moment().format());
-	
-	res.send(auth);
+	res.send("Als vliegen achter vliegen vliegen vliegen vliegen vliegensvlug...");
 });
 
 server.listen(PORT, function () {

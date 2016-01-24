@@ -7,10 +7,8 @@ var googleAuth = require('google-auth-library');
  *
  * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
  */
-function listEvents(auth, task_content, time) {
+function addEvent(auth, task_content, time) {
   var calendar = google.calendar('v3');
-  
-  console.log("Content = " + task_content + " Time = " + time);
   
   var event = {
 	  'summary': task_content,
@@ -38,8 +36,8 @@ function listEvents(auth, task_content, time) {
 
 module.exports = 
 {	
-	Move: function(auth, cont, time)
+	AddEvent: function(auth, cont, time)
 	{
-		listEvents(auth, cont, time);
+		addEvent(auth, cont, time);
 	}
 };
