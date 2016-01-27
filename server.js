@@ -13,10 +13,8 @@ var server = express();
 
 
 server.use(bodyParser.json());
-server.engine('html', require('ejs').renderFile);
-server.set('view engine', 'ejs');
 
-server.use('/calendist', express.static(path.join(__dirname + '.../www/html/calendist.html')));
+server.use(express.static(__dirname + '/www/html'));
 
 server.post('/todoist', function(req, res)
 {
