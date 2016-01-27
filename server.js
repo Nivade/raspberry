@@ -12,7 +12,9 @@ const TodoistSync = "https://todoist.com/API/v6/sync";
 var server = express();
 
 
-server.use(bodyParser.json());
+server.use(bodyParser.json());.
+
+server.use('/', express.static('nivade.ddns.net'));
 
 
 server.post('/todoist', function(req, res)

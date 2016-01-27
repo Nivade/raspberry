@@ -1,0 +1,2 @@
+var Client = "715810b082074d829cb28760ae4b4723";
+var Secret = "49e47697724a49c2bead7ac21f20a5b8";
