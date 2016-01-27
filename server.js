@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var moment = require('moment');
 var requestify = require('requestify');
 var http = require('http');
+var path = require ('path');
 
 const PORT = 8080;
 const TodoistSync = "https://todoist.com/API/v6/sync";
@@ -12,7 +13,7 @@ var server = express();
 
 
 server.use(bodyParser.json());
-server.use('/', express.static(__dirname + '/www/html'));
+server.use('/', express.static(path.join(__dirname + '.../www/html')));
 server.engine('html', require('ejs').renderFile);
 
 server.get('/calendist', function(req, res)
