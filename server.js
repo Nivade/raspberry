@@ -7,15 +7,17 @@ var http = require('http');
 const PORT = 8080;
 const TodoistSync = "https://todoist.com/API/v6/sync";
 
+
 var server = express();
 
 
 server.use(bodyParser.json());
 server.use('/', express.static(__dirname + '/www/html'));
+server.engine('html', require('ejs').renderFile);
 
-server.get('/index', function(req, res)
+server.get('/calendist', function(req, res)
 {
-	res.render('www/html/index.html');
+	res.render('www/html/calendist.html');
 });
 
 server.post('/todoist', function(req, res)
