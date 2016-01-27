@@ -32,12 +32,6 @@ server.post('/todoist', function(req, res)
 	res.status(SuccesCode).send(SuccesMessage);
 });
 
-
-server.get('/',  function (req, res) 
-{
-	res.send("Als vliegen achter vliegen vliegen vliegen vliegen vliegensvlug...");
-});
-
 server.listen(PORT, function () {
   console.log('Server application listening on port ' + PORT);
 });
