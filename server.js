@@ -14,7 +14,7 @@ var server = express();
 
 server.use(bodyParser.json());
 
-server.use('/', express.static('nivade.ddns.net'));
+server.use('/', express.static(__dirname + '/www/html'));
 
 
 server.post('/todoist', function(req, res)
