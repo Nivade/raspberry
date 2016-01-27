@@ -15,12 +15,8 @@ var server = express();
 server.use(bodyParser.json());
 server.engine('html', require('ejs').renderFile);
 server.set('view engine', 'ejs');
-server.use('/', express.static(path.join(__dirname + '.../www/html')));
 
-server.get('/calendist', function(req, res)
-{
-	res.render('www/html/calendist.html');
-});
+server.use('/calendist', express.static(path.join(__dirname + '.../www/html/calendist.html')));
 
 server.post('/todoist', function(req, res)
 {
