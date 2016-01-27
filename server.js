@@ -13,8 +13,9 @@ var server = express();
 
 
 server.use(bodyParser.json());
-server.use('/', express.static(path.join(__dirname + '.../www/html')));
 server.engine('html', require('ejs').renderFile);
+server.set('view engine', 'ejs');
+server.use('/', express.static(path.join(__dirname + '.../www/html')));
 
 server.get('/calendist', function(req, res)
 {
