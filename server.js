@@ -5,17 +5,18 @@ var requestify = require('requestify');
 var http = require('http');
 
 const PORT = 8080;
-const SuccesCode = 200;
-const SuccesMessage = "OK";
 const TodoistSync = "https://todoist.com/API/v6/sync";
 
 var server = express();
 
 
 server.use(bodyParser.json());
-
 server.use('/', express.static(__dirname + '/www/html'));
 
+server.get('/index', function(req, res)
+{
+	res.render('www/html/index.html');
+});
 
 server.post('/todoist', function(req, res)
 {
@@ -29,7 +30,7 @@ server.post('/todoist', function(req, res)
 	
 	calendar.AddEvent(client, task_content, time);
 	
-	res.status(SuccesCode).send(SuccesMessage);
+	res.status(200).send('OK');
 });
 
 server.listen(PORT, function () {
