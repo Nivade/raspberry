@@ -1,1 +1,3 @@
 client_secret.json
+www/html/.htpasswd
+www/html/.htaccess
