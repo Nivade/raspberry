@@ -1,0 +1,7 @@
+{
+  "iss":"761326798069-r5mljlln1rd4lrbhg75efgigp36m78j5@developer.gserviceaccount.com",
+  "scope":"https://www.googleapis.com/auth/devstorage.readonly",
+  "aud":"https://www.googleapis.com/oauth2/v4/token",
+  "exp":1328554385,
+  "iat":1328550785
+}

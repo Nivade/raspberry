@@ -2,27 +2,25 @@
 
 <?php
 
-$url = "https://todoist.com/oauth/authorize?";
-$client = "715810b082074d829cb28760ae4b4723";
-$scope = "task:add,data:read_write,data:delete,project:delete";
-$state = "hopfersaksen"; 
-$secret = "49e47697724a49c2bead7ac21f20a5b8";
-//$data['state'] = "49e47697724a49c2bead7ac21f20a5b8"; 
+	$auth_url = "https://todoist.com/oauth/authorize?";
+	$client = "715810b082074d829cb28760ae4b4723";
+	$scope = "task:add,data:read_write,data:delete,project:delete";
+	$state = "hopfersaksen";
 
-$fields = array(
-	'client_id' => urlencode($client),
-	'scope' => urlencode($scope),
-	'state' => urlencode($state)
-);
+	$parameters = array(
+		'client_id' => urlencode($client),
+		'scope' => urlencode($scope),
+		'state' => urlencode($state)
+	);
 
-//url-ify the data for the POST
-$fields_string = "";
-foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
-rtrim($fields_string, '&');
+	//url-ify the data for the POST
+	$param_string = "";
+	foreach($parameters as $key=>$value) 
+	{ 
+		$param_string .= $key.'='.$value.'&'; 
+	}
 
-header('Location: '.$url.''.$fields_string);
-
-
+	rtrim($param_string, '&');
 
 ?>
 
